@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuantumDefi Pro | BSC Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
+    <style>
+        body { background: #0b0e11; color: #eaecef; }
+        .glass { background: rgba(30, 35, 41, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(243, 186, 47, 0.1); }
+    </style>
+</head>
+<body class="p-4">
+    <div class="max-w-md mx-auto space-y-6">
+        <div class="flex justify-between items-center py-4">
+            <h1 class="text-2xl font-bold text-[#f3ba2f]">QUANTUM<span class="text-white">DEFI</span></h1>
+            <button id="connectBtn" onclick="connect()" class="bg-[#f3ba2f] text-black px-4 py-2 rounded-lg font-bold text-sm shadow-lg shadow-yellow-500/20">Connect Wallet</button>
+        </div>
+
+        <div class="glass p-6 rounded-3xl space-y-4">
+            <div class="flex justify-between border-b border-gray-700 pb-3">
+                <span class="text-gray-400 text-sm">Contract Liquidity</span>
+                <span id="contractBal" class="text-[#f3ba2f] font-bold font-mono text-lg">0.00 USDT</span>
+            </div>
+            <div class="flex justify-between">
+                <span class="text-gray-400 text-sm">Network Status</span>
+                <span class="text-green-500 font-bold text-sm">● BSC Mainnet</span>
+            </div>
+        </div>
+
+        <div class="glass p-8 rounded-3xl shadow-2xl">
+            <div id="dashboard" class="space-y-6 hidden">
+                <div>
+                    <label class="text-xs text-[#f3ba2f] font-bold">REGISTRATION</label>
+                    <input id="regUser" type="text" placeholder="Choose Username" class="w-full bg-[#2b3139] p-4 rounded-xl mt-2 outline-none border border-transparent focus:border-[#f3ba2f]">
+                    <input id="regRef" type="text" placeholder="Referrer (Default: QuantumAdmin)" class="w-full bg-[#2b3139] p-4 rounded-xl mt-2 outline-none">
+                    <button onclick="register()" class="w-full bg-gray-700 py-3 rounded-xl mt-3 font-bold hover:bg-gray-600">Register Account</button>
+                </div>
+                <hr class="border-gray-700">
+                <div>
+                    <label class="text-xs text-[#f3ba2f] font-bold">INVEST USDT</label>
+                    <input id="amt" type="number" placeholder="Enter Amount" class="w-full bg-[#2b3139] p-4 rounded-xl mt-2 outline-none border border-transparent focus:border-[#f3ba2f]">
+                    <div class="grid grid-cols-2 gap-3 mt-4">
+                        <button onclick="approve()" class="bg-gray-700 py-4 rounded-xl font-bold">1. Approve</button>
+                        <button onclick="deposit()" class="bg-[#f3ba2f] text-black py-4 rounded-xl font-bold">2. Deposit</button>
+                    </div>
+                </div>
+            </div>
+            <div id="loginPrompt" class="text-center py-10 text-gray-500">
+                Please connect your wallet to access dashboard.
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
